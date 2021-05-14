@@ -634,9 +634,9 @@ uint8_t Arduboy2Core::buttonsState()
 #ifdef ESP8266
 
 #ifdef GAMEARINO
-    digitalWrite(MatrixC0, LOW);
-    digitalWrite(MatrixC1, HIGH);
-    digitalWrite(MatrixC2, HIGH);
+    pinMode(MatrixC0, OUTPUT);digitalWrite(MatrixC0, LOW);
+    pinMode(MatrixC1, INPUT_PULLUP);
+    pinMode(MatrixC2, INPUT_PULLUP);
     delayMicroseconds(10);
     if(digitalRead(MatrixR0) == LOW){
         buttons |= UP_BUTTON;
@@ -648,22 +648,16 @@ uint8_t Arduboy2Core::buttonsState()
         buttons |= DOWN_BUTTON;
     }
 
-    digitalWrite(MatrixC0, HIGH);
-    digitalWrite(MatrixC1, LOW);
-    digitalWrite(MatrixC2, HIGH);
-    delayMicroseconds(10);
+    pinMode(MatrixC0, INPUT_PULLUP);
+    pinMode(MatrixC1, OUTPUT);digitalWrite(MatrixC1, LOW);
+    pinMode(MatrixC2, INPUT_PULLUP);
     if(digitalRead(MatrixR2) == LOW){
         buttons |= RIGHT_BUTTON;
     }
 
-    digitalWrite(MatrixC0, HIGH);
-    digitalWrite(MatrixC1, HIGH);
-    digitalWrite(MatrixC2, LOW);
-    delayMicroseconds(10);
-    // Gamearino Bugfix:
-    // A und B vertauschen.
-    // es gibt noch einen Bug, wenn original Gamearino A und Links gleichzeitig
-    // gedrückt sind, dann bleibt das Bild stehen.
+    pinMode(MatrixC0, INPUT_PULLUP);
+    pinMode(MatrixC1, INPUT_PULLUP);
+    pinMode(MatrixC2, OUTPUT);digitalWrite(MatrixC2, LOW);
     if(digitalRead(MatrixR0) == LOW){
         buttons |= B_BUTTON;
     }
@@ -673,7 +667,6 @@ uint8_t Arduboy2Core::buttonsState()
 
     return buttons;
 #else
-// TODO Gamearino
   if (!digitalRead(PIN_A_BUTTON))
     buttons |= A_BUTTON;
 
@@ -694,6 +687,7 @@ uint8_t Arduboy2Core::buttonsState()
 
   return buttons;
 #endif
+
 #endif
 
 
