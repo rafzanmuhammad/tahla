@@ -17,6 +17,7 @@
 #include "SpritesB.h"
 #include <Print.h>
 #include <limits.h>
+#include <stdint.h>
 
 #ifdef ESP8266
 // #include <brzo_i2c.h> // Only needed for Arduino 1.6.5 and earlier

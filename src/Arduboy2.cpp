@@ -13,7 +13,11 @@
 // extern SSD1306Brzo oled;
  #include <brzo_i2c.h> // Only needed for Arduino 1.6.5 and earlier
  #include "SSD1306Brzo.h"
+#ifdef GAMEARINO
+SSD1306Brzo oled(0x3c, 14, 2); // OLED_I2C_ADRESS, I2C_SDA, I2C_SCL)
+#else
 SSD1306Brzo oled(0x3c, D2, D1); // OLED_I2C_ADRESS, I2C_SDA, I2C_SCL)
+#endif
 #endif
 
 //========================================

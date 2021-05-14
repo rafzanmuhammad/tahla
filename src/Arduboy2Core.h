@@ -9,6 +9,7 @@
 #define ARDUBOY2_CORE_H
 
 #include <Arduino.h>
+#include <stdint.h>
 
 #ifndef ESP8266
 #include <avr/power.h>
@@ -21,6 +22,7 @@
 
 #define OLED_I2C_ADRESS 0x3c
 #define LIMIT_BUTTON_CALLS (1000 / 30)
+#define GAMEARINO
 #endif
 
 #include <limits.h>
@@ -63,6 +65,15 @@
 #define PIN_ADC A0
 
 // ----- Arduboy pins -----
+#ifdef GAMEARINO
+#define MatrixC0 15
+#define MatrixC1 4
+#define MatrixC2 5
+#define MatrixR0 16
+#define MatrixR1 12
+#define MatrixR2 13
+#endif
+
 #ifdef ARDUBOY_10
 
 #ifndef SLIMBOY
