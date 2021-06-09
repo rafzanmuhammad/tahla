@@ -1,3 +1,13 @@
+# Arduboy 2 Games ported to Gamearino
+
+## Install Arduino Libs (including this repository)
+```
+cd ~/Arduino/libraries
+git clone https://github.com/KarlZeilhofer/esp8266_arduboy2
+git clone https://github.com/pasko-zh/brzo_i2c
+git clone https://github.com/ThingPulse/esp8266-oled-ssd1306
+```
+
 2019 Aug 20   cheungbx
 
 Many people have discussed and shared videos running Arduboy games on ESP8266. However, I have not seen any source codes shared by anyone for games running on  a ESP8266 with working Aruboy2 library that support push buttons. Hence I try to make one myself and share it.
