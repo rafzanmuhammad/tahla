@@ -1,5 +1,7 @@
 # Arduboy 2 Games ported to Gamearino
 
+Gamearino hardware repository: https://github.com/KarlZeilhofer/gamearino
+
 ## Install Arduino Libs (including this repository)
 ```
 cd ~/Arduino/libraries
