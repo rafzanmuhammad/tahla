@@ -20,7 +20,7 @@
 #include <brzo_i2c.h> // Only needed for Arduino 1.6.5 and earlier
 #include "SSD1306Brzo.h"
 
-#define OLED_I2C_ADRESS 0x3c
+#define OLED_I2C_ADRESS 0x3C
 #define LIMIT_BUTTON_CALLS (1000 / 30)
 #define GAMEARINO
 #endif
